@@ -5,6 +5,7 @@ from playsound import playsound
 # ---------------------------- CONSTANTS ---------------------------- #
 ALIENS_LOCATION = [(-210, 240), (-140, 240), (-70, 240), (0, 240), (70, 240), (140, 240), (210, 240),
                    (-210, 210), (-140, 210), (-70, 210), (0, 210), (70, 210), (140, 210), (210, 210)]
+INVADER_KILLED_SOUND = 'sounds/invaderkilled.wav'
 
 # ---------------------------- CODE ---------------------------- #
 class Aliens(Turtle):
@@ -66,7 +67,7 @@ class Aliens(Turtle):
                         self.remove_alien(alien)
                         bullet.goto(5000, 5000)
                         self.score = self.score + 1
-                        playsound('sounds/invaderkilled.wav', block=False)
+                        playsound(INVADER_KILLED_SOUND, block=False)
             # Center - Vertical:
             elif bullet.xcor() == 0 and alien.xcor() == 0 and bullet.ycor() > 0:
                 if abs(abs(bullet.xcor()) - abs(alien.xcor())) < 20:
@@ -74,7 +75,7 @@ class Aliens(Turtle):
                         self.remove_alien(alien)
                         bullet.goto(5000, 5000)
                         self.score = self.score + 1
-                        playsound('sounds/invaderkilled.wav', block=False)
+                        playsound(INVADER_KILLED_SOUND, block=False)
             # Quadrant - Left:
             elif bullet.xcor() > 0 and alien.xcor() > 0 and bullet.ycor() > 0:
                 if abs(abs(bullet.xcor()) - abs(alien.xcor())) < 20:
@@ -82,7 +83,7 @@ class Aliens(Turtle):
                         self.remove_alien(alien)
                         bullet.goto(5000, 5000)
                         self.score = self.score + 1
-                        playsound('sounds/invaderkilled.wav', block=False)
+                        playsound(INVADER_KILLED_SOUND, block=False)
 
     def number_of_aliens_hit(self):
         return self.score

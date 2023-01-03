@@ -4,6 +4,10 @@ from turtle import Screen
 from player import Player
 from game_manager import GameManager
 from playsound import playsound
+
+# ---------------------------- CONSTANTS ---------------------------- #
+BACKGROUND_MUSIC = 'sounds/shoot.wav'
+
 # ---------------------------- CODE ---------------------------- #
 
 # Generate the screen
@@ -23,7 +27,7 @@ screen.onkeypress(player.create_bullet, "space")
 
 # Create new game
 game_manager.start_level()
-playsound('sounds/music.mpeg', block=False)
+playsound(BACKGROUND_MUSIC, block=False)
 game_is_on = True
 
 while game_is_on:
@@ -48,7 +52,6 @@ while game_is_on:
     # Detect life lost:
     for a_bullet in game_manager.aliens.all_bullets:
         # Left coordinate:
-        # print(f"Alien xcor is {a_bullet.xcor} and player xcor is {player.xcor()}")
         if a_bullet.xcor() < 0 and player.xcor() < 0 and a_bullet.ycor() > -280 and a_bullet.ycor() < -240:
             if abs(abs(a_bullet.xcor()) - abs(player.xcor())) < 45:
                 game_manager.scoreboard.lose_life()
@@ -87,12 +90,10 @@ while game_is_on:
     game_manager.update_game()
     player.move_bullet()
 
-
     # Update the screen
     screen.update()
 
 game_manager.scoreboard.game_over()
-
 
 # Leave the screen open
 screen.exitonclick()

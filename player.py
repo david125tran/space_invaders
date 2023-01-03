@@ -1,9 +1,11 @@
 # ---------------------------- IMPORTS ---------------------------- #
 from turtle import Turtle
 from playsound import playsound
+
 # ---------------------------- CONSTANTS ---------------------------- #
 STARTING_POSITION = (0, -260)
 MOVE_DISTANCE = 10
+SHOOTING_SOUND = 'sounds/shoot.wav'
 
 # ---------------------------- CODE ---------------------------- #
 
@@ -38,7 +40,7 @@ class Player(Turtle):
         new_bullet.penup()
         new_bullet.goto(self.xcor(), self.ycor())
         self.all_bullets.append(new_bullet)
-        playsound('sounds/shoot.wav', block=False)
+        playsound(SHOOTING_SOUND, block=False)
 
     def move_bullet(self):
         for bullet in self.all_bullets:
