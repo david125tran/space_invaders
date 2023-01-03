@@ -6,7 +6,7 @@ from game_manager import GameManager
 from playsound import playsound
 
 # ---------------------------- CONSTANTS ---------------------------- #
-BACKGROUND_MUSIC = 'sounds/shoot.wav'
+BACKGROUND_MUSIC = 'sounds/music.mpeg'
 
 # ---------------------------- CODE ---------------------------- #
 
