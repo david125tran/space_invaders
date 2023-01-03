@@ -17,6 +17,8 @@ class GameManager(Turtle):
 
     def start_level(self):
         self.aliens.create_aliens()
+        self.scoreboard.update_display()
+
 
     def alien_fire_weapon(self):
         self.top_range = 200 + (10 * self.scoreboard.level)
@@ -134,5 +136,10 @@ class GameManager(Turtle):
         for alien_bullet in self.aliens.all_bullets:
             if alien_bullet.ycor() < -300:
                 self.aliens.remove_alien_bullet(alien_bullet)
+
+    def restart (self):
+        self.aliens.restart()
+        self.scoreboard.restart()
+
 
 

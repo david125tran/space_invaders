@@ -96,3 +96,10 @@ class Aliens(Turtle):
         for alien in self.all_aliens:
             alien.goto(alien.xcor() - 35, alien.ycor())
 
+    def restart(self):
+        self.score = 0
+        self.remove_all_alien_bullets()
+        for alien in self.all_aliens:
+            alien.goto(-5000, 5000)
+        self.all_aliens = []
+
