@@ -104,7 +104,6 @@ screen.onkeypress(start_game, "s")
 
 
 
-
 # game_manager.scoreboard.game_over()
 
 # Leave the screen open
