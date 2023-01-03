@@ -58,32 +58,27 @@ class Aliens(Turtle):
             alien_bullet.goto(-5000, 10000)
             self.all_bullets = []
 
+    def remove_alien_and_bullet(self, alien, bullet):
+        self.remove_alien(alien)
+        bullet.goto(5000, 5000)
+        self.score = self.score + 1
+        playsound(INVADER_KILLED_SOUND, block=False)
+
     def detect_hit(self, bullet):
         for alien in self.all_aliens:
             # Quadrant - Right:
             if bullet.xcor() < 0 and alien.xcor() < 0 and bullet.ycor() > 0:
-                if abs(abs(bullet.xcor()) - abs(alien.xcor())) < 20:
-                    if abs(abs(bullet.ycor()) - abs(alien.ycor())) < 20:
-                        self.remove_alien(alien)
-                        bullet.goto(5000, 5000)
-                        self.score = self.score + 1
-                        playsound(INVADER_KILLED_SOUND, block=False)
+                if abs(abs(bullet.xcor()) - abs(alien.xcor())) < 20 and \
+                    abs(abs(bullet.ycor()) - abs(alien.ycor())) < 20:
+                        self.remove_alien_and_bullet(alien, bullet)
             # Center - Vertical:
-            elif bullet.xcor() == 0 and alien.xcor() == 0 and bullet.ycor() > 0:
-                if abs(abs(bullet.xcor()) - abs(alien.xcor())) < 20:
-                    if abs(abs(bullet.ycor()) - abs(alien.ycor())) < 20:
-                        self.remove_alien(alien)
-                        bullet.goto(5000, 5000)
-                        self.score = self.score + 1
-                        playsound(INVADER_KILLED_SOUND, block=False)
+            elif bullet.xcor() == 0 and alien.xcor() == 0 and bullet.ycor() > 0 and \
+                    abs(abs(bullet.ycor()) - abs(alien.ycor())) < 20:
+                        self.remove_alien_and_bullet(alien, bullet)
             # Quadrant - Left:
-            elif bullet.xcor() > 0 and alien.xcor() > 0 and bullet.ycor() > 0:
-                if abs(abs(bullet.xcor()) - abs(alien.xcor())) < 20:
-                    if abs(abs(bullet.ycor()) - abs(alien.ycor())) < 20:
-                        self.remove_alien(alien)
-                        bullet.goto(5000, 5000)
-                        self.score = self.score + 1
-                        playsound(INVADER_KILLED_SOUND, block=False)
+            elif bullet.xcor() > 0 and alien.xcor() > 0 and bullet.ycor() > 0 and \
+                    abs(abs(bullet.ycor()) - abs(alien.ycor())) < 20:
+                        self.remove_alien_and_bullet(alien, bullet)
 
     def number_of_aliens_hit(self):
         return self.score

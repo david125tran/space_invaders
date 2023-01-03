@@ -59,7 +59,6 @@ class Scoreboard(Turtle):
         self.write(f"Level: {self.level}\nScore:{self.score}\n\n"
                    f"GAME OVER!!!\n"
                    f"Press 'r' to return to main menu\n"
-                   f"\n"
                    f"Contact: david125tran@gmail.com   (919) 631-3778",
                    align="Center",
                    font=FONT)

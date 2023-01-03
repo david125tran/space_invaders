@@ -29,7 +29,13 @@ class GameManager(Turtle):
             pass
         self.aliens.move_bullet()
 
+    def remove_alien_and_player_bullets(self, a_bullet, p_bullet):
+        self.aliens.remove_alien_bullet(a_bullet)
+        p_bullet.goto(10000, -10000)
+        playsound(EXPLOSION_SOUND, block=False)
+
     def detect_bullets_collide(self, player_bullets):
+        # Detect alien and player bullet colliding in each quadrant
         for a_bullet in self.aliens.all_bullets:
             for p_bullet in player_bullets:
 
@@ -37,65 +43,47 @@ class GameManager(Turtle):
                 if a_bullet.xcor() < 0 and a_bullet.ycor() < 0 and p_bullet.xcor() < 0 and p_bullet.ycor() < 0:
                     if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
                         abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                        self.aliens.remove_alien_bullet(a_bullet)
-                        p_bullet.goto(10000, -10000)
-                        playsound(EXPLOSION_SOUND, block=False)
+                        self.remove_alien_and_player_bullets(a_bullet, p_bullet)
                 # Quadrant - Bottom Right:
                 elif a_bullet.xcor() > 0 and a_bullet.ycor() < 0 and p_bullet.xcor() > 0 and p_bullet.ycor() < 0:
                     if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
                         abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                        self.aliens.remove_alien_bullet(a_bullet)
-                        p_bullet.goto(10000, -10000)
-                        playsound(EXPLOSION_SOUND, block=False)
+                        self.remove_alien_and_player_bullets(a_bullet, p_bullet)
                 # Quadrant - Top Right:
                 elif a_bullet.xcor() > 0 and a_bullet.ycor() > 0 and p_bullet.xcor() > 0 and p_bullet.ycor() > 0:
                     if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
                         abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                        self.aliens.remove_alien_bullet(a_bullet)
-                        p_bullet.goto(10000, -10000)
-                        playsound(EXPLOSION_SOUND, block=False)
+                        self.remove_alien_and_player_bullets(a_bullet, p_bullet)
                 # Quadrant - Top Left:
                 elif a_bullet.xcor() < 0 and a_bullet.ycor() > 0 and p_bullet.xcor() < 0 and p_bullet.ycor() > 0:
                     if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
                         abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                        self.aliens.remove_alien_bullet(a_bullet)
-                        p_bullet.goto(10000, -10000)
-                        playsound(EXPLOSION_SOUND, block=False)
+                        self.remove_alien_and_player_bullets(a_bullet, p_bullet)
                 # Center - Vertical Top:
                 elif a_bullet.xcor() == 0 and a_bullet.ycor() > 0 and p_bullet.xcor() == 0 and p_bullet.ycor() > 0:
                     if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
                         abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                        self.aliens.remove_alien_bullet(a_bullet)
-                        p_bullet.goto(10000, -10000)
-                        playsound(EXPLOSION_SOUND, block=False)
+                        self.remove_alien_and_player_bullets(a_bullet, p_bullet)
                 # Center - Vertical Bottom:
                 elif a_bullet.xcor() == 0 and a_bullet.ycor() < 0 and p_bullet.xcor() == 0 and p_bullet.ycor() < 0:
                     if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
                         abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                        self.aliens.remove_alien_bullet(a_bullet)
-                        p_bullet.goto(10000, -10000)
-                        playsound(EXPLOSION_SOUND, block=False)
+                        self.remove_alien_and_player_bullets(a_bullet, p_bullet)
                 # Center:
                 elif a_bullet.xcor() == 0 and a_bullet.ycor() == 0 and p_bullet.xcor() == 0 and p_bullet.ycor() == 0:
                     if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
                         abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                        self.aliens.remove_alien_bullet(a_bullet)
-                        p_bullet.goto(10000, -10000)
-                        playsound(EXPLOSION_SOUND, block=False)
+                        self.remove_alien_and_player_bullets(a_bullet, p_bullet)
                 # Center - Horizontal Left:
                 elif a_bullet.xcor() < 0 and a_bullet.ycor() == 0 and p_bullet.xcor() < 0 and p_bullet.ycor() == 0:
                     if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
                         abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                        self.aliens.remove_alien_bullet(a_bullet)
-                        p_bullet.goto(10000, -10000)
-                        playsound(EXPLOSION_SOUND, block=False)
+                        self.remove_alien_and_player_bullets(a_bullet, p_bullet)
                 # Center - Horizontal Left:
                 elif a_bullet.xcor() > 0 and a_bullet.ycor() == 0 and p_bullet.xcor() > 0 and p_bullet.ycor() == 0:
                     if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
                         abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                        self.aliens.remove_alien_bullet(a_bullet)
-                        p_bullet.goto(10000, -10000)
-                        playsound(EXPLOSION_SOUND, block=False)
+                        self.remove_alien_and_player_bullets(a_bullet, p_bullet)
 
 
     def detect_alien_hit(self, bullets):
@@ -106,12 +94,12 @@ class GameManager(Turtle):
         score = self.aliens.number_of_aliens_hit()
         self.scoreboard.update_score(score)
 
-    def detect_level_up(self):
-        if len(self.aliens.all_aliens) == 0:
-            self.scoreboard.level_up()
-            self.start_level()
+    def level_up(self):
+        self.scoreboard.level_up()
+        self.start_level()
 
     def move_aliens(self):
+        # Aliens moving left and right at random speed
         move_aliens = random.randrange(0, 101 + (self.scoreboard.level * 4))
         if move_aliens > 90:
             choice = random.randrange(1, 3)
