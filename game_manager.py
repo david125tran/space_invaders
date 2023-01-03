@@ -35,67 +35,67 @@ class GameManager(Turtle):
 
                 # Quadrant - Bottom Left:
                 if a_bullet.xcor() < 0 and a_bullet.ycor() < 0 and p_bullet.xcor() < 0 and p_bullet.ycor() < 0:
-                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION:
-                        if abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                            self.aliens.remove_alien_bullet(a_bullet)
-                            p_bullet.goto(10000, -10000)
-                            playsound(EXPLOSION_SOUND, block=False)
+                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
+                        abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
+                        self.aliens.remove_alien_bullet(a_bullet)
+                        p_bullet.goto(10000, -10000)
+                        playsound(EXPLOSION_SOUND, block=False)
                 # Quadrant - Bottom Right:
                 elif a_bullet.xcor() > 0 and a_bullet.ycor() < 0 and p_bullet.xcor() > 0 and p_bullet.ycor() < 0:
-                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION:
-                        if abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                            self.aliens.remove_alien_bullet(a_bullet)
-                            p_bullet.goto(10000, -10000)
-                            playsound(EXPLOSION_SOUND, block=False)
+                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
+                        abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
+                        self.aliens.remove_alien_bullet(a_bullet)
+                        p_bullet.goto(10000, -10000)
+                        playsound(EXPLOSION_SOUND, block=False)
                 # Quadrant - Top Right:
                 elif a_bullet.xcor() > 0 and a_bullet.ycor() > 0 and p_bullet.xcor() > 0 and p_bullet.ycor() > 0:
-                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION:
-                        if abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                            self.aliens.remove_alien_bullet(a_bullet)
-                            p_bullet.goto(10000, -10000)
-                            playsound(EXPLOSION_SOUND, block=False)
+                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
+                        abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
+                        self.aliens.remove_alien_bullet(a_bullet)
+                        p_bullet.goto(10000, -10000)
+                        playsound(EXPLOSION_SOUND, block=False)
                 # Quadrant - Top Left:
                 elif a_bullet.xcor() < 0 and a_bullet.ycor() > 0 and p_bullet.xcor() < 0 and p_bullet.ycor() > 0:
-                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION:
-                        if abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                            self.aliens.remove_alien_bullet(a_bullet)
-                            p_bullet.goto(10000, -10000)
-                            playsound(EXPLOSION_SOUND, block=False)
+                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
+                        abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
+                        self.aliens.remove_alien_bullet(a_bullet)
+                        p_bullet.goto(10000, -10000)
+                        playsound(EXPLOSION_SOUND, block=False)
                 # Center - Vertical Top:
                 elif a_bullet.xcor() == 0 and a_bullet.ycor() > 0 and p_bullet.xcor() == 0 and p_bullet.ycor() > 0:
-                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION:
-                        if abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                            self.aliens.remove_alien_bullet(a_bullet)
-                            p_bullet.goto(10000, -10000)
-                            playsound(EXPLOSION_SOUND, block=False)
+                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
+                        abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
+                        self.aliens.remove_alien_bullet(a_bullet)
+                        p_bullet.goto(10000, -10000)
+                        playsound(EXPLOSION_SOUND, block=False)
                 # Center - Vertical Bottom:
                 elif a_bullet.xcor() == 0 and a_bullet.ycor() < 0 and p_bullet.xcor() == 0 and p_bullet.ycor() < 0:
-                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION:
-                        if abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                            self.aliens.remove_alien_bullet(a_bullet)
-                            p_bullet.goto(10000, -10000)
-                            playsound(EXPLOSION_SOUND, block=False)
+                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
+                        abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
+                        self.aliens.remove_alien_bullet(a_bullet)
+                        p_bullet.goto(10000, -10000)
+                        playsound(EXPLOSION_SOUND, block=False)
                 # Center:
                 elif a_bullet.xcor() == 0 and a_bullet.ycor() == 0 and p_bullet.xcor() == 0 and p_bullet.ycor() == 0:
-                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION:
-                        if abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                            self.aliens.remove_alien_bullet(a_bullet)
-                            p_bullet.goto(10000, -10000)
-                            playsound(EXPLOSION_SOUND, block=False)
+                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
+                        abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
+                        self.aliens.remove_alien_bullet(a_bullet)
+                        p_bullet.goto(10000, -10000)
+                        playsound(EXPLOSION_SOUND, block=False)
                 # Center - Horizontal Left:
                 elif a_bullet.xcor() < 0 and a_bullet.ycor() == 0 and p_bullet.xcor() < 0 and p_bullet.ycor() == 0:
-                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION:
-                        if abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                            self.aliens.remove_alien_bullet(a_bullet)
-                            p_bullet.goto(10000, -10000)
-                            playsound(EXPLOSION_SOUND, block=False)
+                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
+                        abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
+                        self.aliens.remove_alien_bullet(a_bullet)
+                        p_bullet.goto(10000, -10000)
+                        playsound(EXPLOSION_SOUND, block=False)
                 # Center - Horizontal Left:
                 elif a_bullet.xcor() > 0 and a_bullet.ycor() == 0 and p_bullet.xcor() > 0 and p_bullet.ycor() == 0:
-                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION:
-                        if abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
-                            self.aliens.remove_alien_bullet(a_bullet)
-                            p_bullet.goto(10000, -10000)
-                            playsound(EXPLOSION_SOUND, block=False)
+                    if abs(abs(a_bullet.xcor()) - abs(p_bullet.xcor())) < COLLISION and \
+                        abs(abs(a_bullet.ycor()) - abs(p_bullet.ycor())) < 30:
+                        self.aliens.remove_alien_bullet(a_bullet)
+                        p_bullet.goto(10000, -10000)
+                        playsound(EXPLOSION_SOUND, block=False)
 
 
     def detect_alien_hit(self, bullets):
