@@ -43,7 +43,7 @@ def restart_game():
 # Create new game
 def start_game():
     # Key actions:
-    screen.onkeypress(disable_key_press, "s")
+    screen.onkeypress(disable_key_press, "s") # Disable this key press
     screen.onkeypress(player.go_left, "Left")
     screen.onkeypress(player.go_right, "Right")
     screen.onkeypress(player.create_bullet, "space")
@@ -106,6 +106,8 @@ def start_game():
 
     game_manager.scoreboard.game_over()
     screen.onkeypress(restart_game, "r")
+
+    # Disable these key presses
     screen.onkeypress(disable_key_press, "Left")
     screen.onkeypress(disable_key_press, "Right")
     screen.onkeypress(disable_key_press, "space")
