@@ -19,6 +19,7 @@ class Scoreboard(Turtle):
         self.start_screen()
 
     def start_screen(self):
+        '''This pulls up the starting screen'''
         self.clear()
         self.goto(0, 0)
         self.write("Space Invaders Mock Game\n"
@@ -34,6 +35,7 @@ class Scoreboard(Turtle):
                    font=FONT)
 
     def update_display(self):
+        '''This updates the scoreboard display'''
         self.clear()
         self.goto(0, 260)
         self.write(f"Level: {self.level}       Score:       {self.score}       Lives: {self.lives}",
@@ -41,19 +43,20 @@ class Scoreboard(Turtle):
                    font=FONT)
 
     def lose_life(self):
+        '''This removes a life'''
         self.lives = self.lives - 1
 
     def level_up(self):
+        '''This increase a level in the game'''
         self.lives = 3
         self.level = self.level + 1
 
     def update_score(self, new_score):
+        '''This takes in the new score as, "new_scoore" and updates the score'''
         self.score = new_score
 
-    def lose_life(self):
-        self.lives = self.lives - 1
-
     def game_over(self):
+        '''This function forces the game to be over'''
         self.clear()
         self.goto(0, 0)
         self.write(f"Level: {self.level}\nScore:{self.score}\n\n"
@@ -64,6 +67,7 @@ class Scoreboard(Turtle):
                    font=FONT)
 
     def restart(self):
+        '''This restarts the scoreboard'''
         self.level = 1
         self.lives = 3
         self.score = 0

@@ -16,11 +16,13 @@ class GameManager(Turtle):
         self.scoreboard = Scoreboard()
 
     def start_level(self):
+        '''Starts a new level'''
         self.aliens.create_aliens()
         self.scoreboard.update_display()
 
 
     def alien_fire_weapon(self):
+        '''Makes the aliens fire weapons at random.  As the level increases, the firing speeds up'''
         self.top_range = 200 + (10 * self.scoreboard.level)
         self.random_number = random.randrange(0, self.top_range)
         if self.random_number > 190:   # 20% Chance of firing weapon
@@ -30,11 +32,14 @@ class GameManager(Turtle):
         self.aliens.move_bullet()
 
     def remove_alien_and_player_bullets(self, a_bullet, p_bullet):
+        '''This takes in an alien and player bullet as, "a_bullet" and "p_bullet" and removes both bullets'''
         self.aliens.remove_alien_bullet(a_bullet)
         p_bullet.goto(10000, -10000)
+        self.aliens.score = self.aliens.score + 1
         playsound(EXPLOSION_SOUND, block=False)
 
     def detect_bullets_collide(self, player_bullets):
+        '''This takes in all player's bullets as, "player_bullets" to check if it hit an alien's bullet'''
         # Detect alien and player bullet colliding in each quadrant
         for a_bullet in self.aliens.all_bullets:
             for p_bullet in player_bullets:
@@ -87,18 +92,22 @@ class GameManager(Turtle):
 
 
     def detect_alien_hit(self, bullets):
+        '''This takes in all player's bullets as, "bullets", and checks if an alien was hit'''
         for bullet in bullets:
             self.aliens.detect_hit(bullet)
 
     def update_score(self):
-        score = self.aliens.number_of_aliens_hit()
+        '''This function updates the scoreboard'''
+        score =  self.aliens.score
         self.scoreboard.update_score(score)
 
     def level_up(self):
+        '''This function level's up the game'''
         self.scoreboard.level_up()
         self.start_level()
 
     def move_aliens(self):
+        '''This function moves aliens at random either left or right'''
         # Aliens moving left and right at random speed
         move_aliens = random.randrange(0, 101 + (self.scoreboard.level * 4))
         if move_aliens > 90:
@@ -114,6 +123,7 @@ class GameManager(Turtle):
                     self.aliens.move_left()
 
     def update_game(self):
+        '''This function is called every loop to update the game'''
         if self.aliens.all_aliens:
             self.alien_fire_weapon()
             self.scoreboard.update_display()
@@ -126,6 +136,7 @@ class GameManager(Turtle):
                 self.aliens.remove_alien_bullet(alien_bullet)
 
     def restart (self):
+        '''This function restarts the game'''
         self.aliens.restart()
         self.scoreboard.restart()
 

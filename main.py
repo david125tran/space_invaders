@@ -21,21 +21,22 @@ playsound(BACKGROUND_MUSIC, block=False)
 player = Player()
 game_manager = GameManager()
 
-screen.listen()
+screen.listen() # Listen for key strokes
 
 def disable_key_press():
-    # This function will make key presses do nothing
+    '''This function will make key presses do nothing'''
     pass
 
-def lose_life(a_bullet):
+def lose_life():
+    '''Player loses a life because they were hit by an alien bullet.  This removes all alien bullets from screen'''
     game_manager.scoreboard.lose_life()
-    game_manager.aliens.remove_alien_bullet(a_bullet)
     game_manager.aliens.remove_all_alien_bullets()
     player.remove_all_bullets()
     player.goto(0, -260)
     playsound(EXPLOSION_SOUND, block=False)
 
 def restart_game():
+    '''This function will restart the game'''
     player.remove_all_bullets()
     game_manager.restart()
     screen.update()
@@ -43,6 +44,7 @@ def restart_game():
 
 # Create new game when the 's' key is pressed:
 def start_game():
+    '''This function begins the game'''
     # Key actions:
     screen.onkeypress(disable_key_press, "s") # Disable this key press when game is already running
     screen.onkeypress(player.go_left, "Left")
@@ -71,20 +73,21 @@ def start_game():
             game_manager.aliens.remove_all_alien_bullets()
             game_manager.level_up()
 
-        # Detect life lost in different coordinates:
+        # Detect life lost in different coordinates.  Each coordinate must be checked because of the
+        # (-) negative or (+) positive location of the bullet and player:
         for a_bullet in game_manager.aliens.all_bullets:
             # Left coordinate:
             if a_bullet.xcor() < 0 and player.xcor() < 0 and a_bullet.ycor() > -280 and a_bullet.ycor() < -240:
                 if abs(abs(a_bullet.xcor()) - abs(player.xcor())) < 45:
-                    lose_life(a_bullet)
+                    lose_life()
             # Center:
             elif a_bullet.xcor() == 0 and player.xcor() == 0 and a_bullet.ycor() > -280 and a_bullet.ycor() < -240:
                 if abs(abs(a_bullet.xcor()) - abs(player.xcor())) < 45:
-                    lose_life(a_bullet)
+                    lose_life()
             # Right coordinate:
             elif a_bullet.xcor() > 0 and player.xcor() > 0 and a_bullet.ycor() > -280 and a_bullet.ycor() < -240:
                 if abs(abs(a_bullet.xcor()) - abs(player.xcor())) < 45:
-                    lose_life(a_bullet)
+                    lose_life()
 
         # Remove player bullets that go off-screen:
         for player_bullet in player.all_bullets:
