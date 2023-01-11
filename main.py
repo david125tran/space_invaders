@@ -109,7 +109,7 @@ def start_game():
     game_manager.scoreboard.game_over()
     screen.onkeypress(restart_game, "r")
 
-    # Disable these key presses when the game is not running
+    # Disable these key presses when the game is running
     screen.onkeypress(disable_key_press, "Left")
     screen.onkeypress(disable_key_press, "Right")
     screen.onkeypress(disable_key_press, "space")
