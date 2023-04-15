@@ -29,8 +29,7 @@ class Scoreboard(Turtle):
                    "Press 's' to start the game!\n"
                    "\n"
                    "Creator: david125tran@gmail.com\n"
-                   "David Tran\n"
-                   "(919) 631-3778",
+                   "David Tran\n",
                    align="Center",
                    font=FONT)
 
