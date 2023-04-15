@@ -1,7 +1,7 @@
 ### Space Invaders
   
-This project is a mock example of the classic arcade game, Space Invaders using Python's Turtle module library to draw.  
-Run this in a Python IDE such as PyCharm  
+This project is a mock example of the classic arcade 🎮 game, Space Invaders using Python's Turtle module library to draw.  
+Run this in a Python IDE such as PyCharm.  I will add GIFs to make this repo more fun!  
   
 ### Space Invaders
 ![](https://github.com/david125tran/space_invaders/blob/main/GIFs/SpaceInvaders.gif)  
